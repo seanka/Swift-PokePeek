@@ -3,37 +3,62 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
-/* Begin PBXFileReference section */
-		B4177E122E55B4B7000E96C6 /* PokePeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokePeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+/* Begin PBXBuildFile section */
+		B4F39B262E55B82300C6C626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F39B222E55B82300C6C626 /* ContentView.swift */; };
+		B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F39B232E55B82300C6C626 /* PokePeekApp.swift */; };
+		B4F39B292E55B82300C6C626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F39B212E55B82300C6C626 /* Assets.xcassets */; };
+		E81F3196290CCCD165E75693 /* Pods_PokePeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1370C11AFCD47623FD20D606 /* Pods_PokePeek.framework */; };
+/* End PBXBuildFile section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B4177E142E55B4B7000E96C6 /* PokePeek */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PokePeek;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* Begin PBXFileReference section */
+		1370C11AFCD47623FD20D606 /* Pods_PokePeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokePeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90ADAE899A92710C05D11722 /* Pods-PokePeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.release.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.release.xcconfig"; sourceTree = "<group>"; };
+		AF9B2E4563431AF5442EE88A /* Pods-PokePeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.debug.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.debug.xcconfig"; sourceTree = "<group>"; };
+		B4177E122E55B4B7000E96C6 /* PokePeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokePeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4F39B212E55B82300C6C626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4F39B222E55B82300C6C626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B4F39B232E55B82300C6C626 /* PokePeekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokePeekApp.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B4177E0F2E55B4B7000E96C6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81F3196290CCCD165E75693 /* Pods_PokePeek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AFD4C3D100941504E18FC7A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF9B2E4563431AF5442EE88A /* Pods-PokePeek.debug.xcconfig */,
+				90ADAE899A92710C05D11722 /* Pods-PokePeek.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2A1A2DBB2F6F6F0011B03643 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1370C11AFCD47623FD20D606 /* Pods_PokePeek.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B4177E092E55B4B7000E96C6 = {
 			isa = PBXGroup;
 			children = (
 				B4177E142E55B4B7000E96C6 /* PokePeek */,
 				B4177E132E55B4B7000E96C6 /* Products */,
+				0AFD4C3D100941504E18FC7A /* Pods */,
+				2A1A2DBB2F6F6F0011B03643 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -45,6 +70,112 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B4177E142E55B4B7000E96C6 /* PokePeek */ = {
+			isa = PBXGroup;
+			children = (
+				B439BEA82E55BBBE00F063C0 /* Data */,
+				B439BEA92E55BBC100F063C0 /* Domain */,
+				B439BEAA2E55BBC800F063C0 /* Presentation */,
+				B4F39B212E55B82300C6C626 /* Assets.xcassets */,
+				B4F39B222E55B82300C6C626 /* ContentView.swift */,
+				B4F39B232E55B82300C6C626 /* PokePeekApp.swift */,
+			);
+			path = PokePeek;
+			sourceTree = "<group>";
+		};
+		B439BEA82E55BBBE00F063C0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B439BEAB2E55BC2F00F063C0 /* Local */,
+				B439BEAC2E55BC3200F063C0 /* Remotes */,
+				B439BEAD2E55BC4300F063C0 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B439BEA92E55BBC100F063C0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B439BEAE2E55BC6600F063C0 /* Entities */,
+				B439BEAF2E55BC6E00F063C0 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B439BEAA2E55BBC800F063C0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B439BEB32E55BCA000F063C0 /* Common */,
+				B439BEB22E55BC9C00F063C0 /* Auth */,
+				B439BEB12E55BC9600F063C0 /* Home */,
+				B439BEB02E55BC7900F063C0 /* Profile */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B439BEAB2E55BC2F00F063C0 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		B439BEAC2E55BC3200F063C0 /* Remotes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remotes;
+			sourceTree = "<group>";
+		};
+		B439BEAD2E55BC4300F063C0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B439BEAE2E55BC6600F063C0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B439BEAF2E55BC6E00F063C0 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B439BEB02E55BC7900F063C0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B439BEB12E55BC9600F063C0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B439BEB22E55BC9C00F063C0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B439BEB32E55BCA000F063C0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -52,20 +183,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4177E202E55B4B8000E96C6 /* Build configuration list for PBXNativeTarget "PokePeek" */;
 			buildPhases = (
+				60178B1D247D8E3DA96D249C /* [CP] Check Pods Manifest.lock */,
 				B4177E0E2E55B4B7000E96C6 /* Sources */,
 				B4177E0F2E55B4B7000E96C6 /* Frameworks */,
 				B4177E102E55B4B7000E96C6 /* Resources */,
+				585F2266907614FDF292EAAA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				B4177E142E55B4B7000E96C6 /* PokePeek */,
-			);
 			name = PokePeek;
-			packageProductDependencies = (
-			);
 			productName = PokePeek;
 			productReference = B4177E122E55B4B7000E96C6 /* PokePeek.app */;
 			productType = "com.apple.product-type.application";
@@ -82,10 +210,12 @@
 				TargetAttributes = {
 					B4177E112E55B4B7000E96C6 = {
 						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
 					};
 				};
 			};
 			buildConfigurationList = B4177E0D2E55B4B7000E96C6 /* Build configuration list for PBXProject "PokePeek" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -93,8 +223,6 @@
 				Base,
 			);
 			mainGroup = B4177E092E55B4B7000E96C6;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = B4177E132E55B4B7000E96C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -109,16 +237,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F39B292E55B82300C6C626 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		585F2266907614FDF292EAAA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokePeek/Pods-PokePeek-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokePeek/Pods-PokePeek-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokePeek/Pods-PokePeek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60178B1D247D8E3DA96D249C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokePeek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4177E0E2E55B4B7000E96C6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F39B262E55B82300C6C626 /* ContentView.swift in Sources */,
+				B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +335,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -225,7 +398,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -246,9 +419,11 @@
 		};
 		B4177E212E55B4B8000E96C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF9B2E4563431AF5442EE88A /* Pods-PokePeek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PokePeek/Preview Content\"";
@@ -268,6 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanka.PokePeek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -275,9 +451,11 @@
 		};
 		B4177E222E55B4B8000E96C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90ADAE899A92710C05D11722 /* Pods-PokePeek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PokePeek/Preview Content\"";
