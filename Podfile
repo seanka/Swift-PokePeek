@@ -1,10 +1,10 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '12.0'
+ platform :ios, '16.0'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "12.0"
+      config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "16.0"
     end
   end
 end
@@ -18,5 +18,5 @@ target 'PokePeek' do
   pod 'Kingfisher', '7.6.2'
   pod 'RxSwift', '6.5.0'
   pod 'MBProgressHUD', '1.2.0'
-  pod 'XLPagerTabStrip', '9.0.0'
+  pod 'PagerTabStripView', '4.0.0'
 end
