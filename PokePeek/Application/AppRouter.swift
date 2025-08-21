@@ -18,11 +18,16 @@ final class AppRouter: ObservableObject {
     }
     
     private func initialRoute() {
-        if let user = userHelper.fetchLoggedUser(),
-           userHelper.checkTokenValidity(for: user) {
+        guard let user = userHelper.fetchLoggedUser() else {
+            currentRoute = .login
+            return
+        }
+        
+        if userHelper.checkTokenValidity(for: user) {
             currentRoute = .main
         } else {
             currentRoute = .login
+            userHelper.invalidateToken(for: user)
         }
     }
     
