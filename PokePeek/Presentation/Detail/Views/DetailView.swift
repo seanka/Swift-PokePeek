@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject var router: AppRouter
+    @StateObject var viewModel: DetailViewModel
+    
+    public var pokemonName: String
+    
+    init(viewModel: DetailViewModel, pokemonName: String) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.pokemonName = pokemonName
+    }
+    
     var body: some View {
-        Text("Detail")
+        VStack(spacing: 16) {
+            Text(pokemonName)
+                .font(.largeTitle)
+                .bold()
+            
+            Spacer()
+            
+            Text(String(viewModel.pokeDetail.weight ?? 0))
+        }
+        .navigationTitle(pokemonName.capitalized)
+        .navigationBarBackButtonHidden(false)
+        .onAppear {
+            viewModel.requestPokemonDetail(name: pokemonName)
+        }
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(viewModel: DependencyContainer.shared.provideDetailViewModel(), pokemonName: "")
 }
