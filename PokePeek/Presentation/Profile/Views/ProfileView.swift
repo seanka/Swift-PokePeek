@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var router: AppRouter
+    @StateObject var viewModel: ProfileViewModel
+    
     var body: some View {
-        Text("Profile")
+        VStack() {
+            Text("Profile")
+            
+            Text(viewModel.userData?.name ?? "")
+            Text(viewModel.userData?.email ?? "")
+            Text("\(String(describing: viewModel.userData?.createdAt))")
+            
+            Button("Logout") {
+                viewModel.logoutUser()
+            }
+        }
+        .onAppear {
+            viewModel.fetchUserData()
+            
+            viewModel.userShouldLogin.subscribe(onNext: { shouldLogin in
+                guard shouldLogin else { return }
+                
+                if shouldLogin {
+                    router.navigate(to: .login)
+                }
+            }).disposed(by: viewModel.disposeBag)
+        }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(viewModel: DependencyContainer.shared.provideProfileViewModel())
 }

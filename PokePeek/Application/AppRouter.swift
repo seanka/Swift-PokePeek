@@ -44,7 +44,9 @@ extension AppRouter {
             return AnyView(HomeView().environmentObject(self))
 
         case .profileTab:
-            return AnyView(ProfileView().environmentObject(self))
+            let dependencyContainer = DependencyContainer.shared
+            return AnyView(ProfileView(
+                viewModel: dependencyContainer.provideProfileViewModel()).environmentObject(self))
 
         default:
             return AnyView(EmptyView())

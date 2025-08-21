@@ -16,11 +16,13 @@ struct MainTabView: View {
         PagerTabStripView(selection: $selection) {
             
             router.tabView(for: .homeTab)
+                .id(selection)
                 .pagerTabItem(tag: 0) {
                     Text("Home")
                 }
 
             router.tabView(for: .profileTab)
+                .id(selection)
                 .pagerTabItem(tag: 1) {
                     Text("Profile")
                 }

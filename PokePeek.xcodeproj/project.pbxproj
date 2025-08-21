@@ -25,6 +25,7 @@
 		B4BD02052E55F60D00D9DED5 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD02042E55F60A00D9DED5 /* UserRequest.swift */; };
 		B4BD02092E56ACF500D9DED5 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD02082E56ACED00D9DED5 /* Toast.swift */; };
 		B4BD020B2E56AD0700D9DED5 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD020A2E56AD0500D9DED5 /* ViewExtension.swift */; };
+		B4BD020D2E56BEEB00D9DED5 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD020C2E56BEE800D9DED5 /* ProfileViewModel.swift */; };
 		B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F39B232E55B82300C6C626 /* PokePeekApp.swift */; };
 		B4F39B292E55B82300C6C626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F39B212E55B82300C6C626 /* Assets.xcassets */; };
 		E81F3196290CCCD165E75693 /* Pods_PokePeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1370C11AFCD47623FD20D606 /* Pods_PokePeek.framework */; };
@@ -53,6 +54,7 @@
 		B4BD02042E55F60A00D9DED5 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		B4BD02082E56ACED00D9DED5 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		B4BD020A2E56AD0500D9DED5 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		B4BD020C2E56BEE800D9DED5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B4F39B212E55B82300C6C626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4F39B232E55B82300C6C626 /* PokePeekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokePeekApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,6 +305,7 @@
 		B439BEDB2E55D8CC00F063C0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B4BD020C2E56BEE800D9DED5 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				B439BEE32E55D90E00F063C0 /* SearchView.swift in Sources */,
 				B439BED02E55D71600F063C0 /* AppRouter.swift in Sources */,
 				B439BEBD2E55C64500F063C0 /* Persistence.swift in Sources */,
+				B4BD020D2E56BEEB00D9DED5 /* ProfileViewModel.swift in Sources */,
 				B4BD02052E55F60D00D9DED5 /* UserRequest.swift in Sources */,
 				B4BD020B2E56AD0700D9DED5 /* ViewExtension.swift in Sources */,
 				B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */,

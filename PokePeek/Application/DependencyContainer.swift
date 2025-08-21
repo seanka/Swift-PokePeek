@@ -23,4 +23,8 @@ final class DependencyContainer {
     func provideAuthViewModel() -> AuthViewModel {
         AuthViewModel(userHelper: userDataHelper)
     }
+    
+    func provideProfileViewModel() -> ProfileViewModel {
+        ProfileViewModel(userHelper: userDataHelper)
+    }
 }
