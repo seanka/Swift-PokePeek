@@ -17,6 +17,7 @@ target 'PokePeek' do
   pod 'Alamofire', '5.6.4'
   pod 'Kingfisher', '7.6.2'
   pod 'RxSwift', '6.5.0'
+  pod 'RxRelay', '6.5.0'
   pod 'MBProgressHUD', '1.2.0'
   pod 'PagerTabStripView', '4.0.0'
 end

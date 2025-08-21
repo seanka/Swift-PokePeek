@@ -3,6 +3,8 @@ PODS:
   - Kingfisher (7.6.2)
   - MBProgressHUD (1.2.0)
   - PagerTabStripView (4.0.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
 
 DEPENDENCIES:
@@ -10,6 +12,7 @@ DEPENDENCIES:
   - Kingfisher (= 7.6.2)
   - MBProgressHUD (= 1.2.0)
   - PagerTabStripView (= 4.0.0)
+  - RxRelay (= 6.5.0)
   - RxSwift (= 6.5.0)
 
 SPEC REPOS:
@@ -18,6 +21,7 @@ SPEC REPOS:
     - Kingfisher
     - MBProgressHUD
     - PagerTabStripView
+    - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
@@ -25,8 +29,9 @@ SPEC CHECKSUMS:
   Kingfisher: 6c5449c6450c5239166510ba04afe374a98afc4f
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   PagerTabStripView: 4d51320a7349ac4da5a662ac0bdacb8e8e5120f1
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: b7bccc51db95346a18e75fc6a03a97eeadcf1b15
+PODFILE CHECKSUM: f5b127937bea4bb7788895a44b124769cdb4bfc7
 
 COCOAPODS: 1.14.3
