@@ -30,7 +30,7 @@ struct ProfileView: View {
                 guard shouldLogin else { return }
                 
                 if shouldLogin {
-                    router.navigate(to: .login)
+                    router.push(to: .login)
                 }
             }).disposed(by: viewModel.disposeBag)
         }

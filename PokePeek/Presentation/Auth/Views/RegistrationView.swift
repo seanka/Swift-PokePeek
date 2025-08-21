@@ -54,7 +54,7 @@ struct RegistrationView: View {
                 withAnimation { self.registerSuceeded = true }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    router.navigate(to: .login)
+                    router.pop()
                 }
             }).disposed(by: viewModel.disposeBag)
         }

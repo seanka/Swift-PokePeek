@@ -5,15 +5,19 @@
 //  Created by Sean Anderson on 20/08/25.
 //
 
-enum AppRoute {
-    // screens
-    case login
-    case register(email: String)
-    case main
-    case search
-    case detail(name: String)
-    
-    // tabs
+enum AppTabs {
     case homeTab
     case profileTab
+}
+
+enum RootView: Hashable {
+    case login
+    case main
+}
+
+enum ChildView: Hashable {
+    case search
+    case detail(pokemonName: String)
+    case login
+    case register(email: String)
 }

@@ -13,30 +13,38 @@ struct RootNavigationView: View {
     private let dependencyContainer = DependencyContainer.shared
     
     var body: some View {
-        switch router.currentRoute {
-        case .login:
-            LoginView(viewModel: dependencyContainer.provideAuthViewModel()).environmentObject(router)
+        switch router.root {
             
-        case .register(let email):
-            let authVM = dependencyContainer.provideAuthViewModel()
-            RegistrationView(viewModel: authVM, preffiledEmail: email).environmentObject(router)
+        case .login:
+            LoginView(viewModel: dependencyContainer.provideAuthViewModel())
+                .environmentObject(router)
             
         case .main:
-            MainTabView().environmentObject(router)
-            
-        case .detail:
-            DetailView()
-            
-        case .search:
-            SearchView()
-            
-        case .homeTab:
-            // handled on AppRouter.tabView
-            EmptyView()
-            
-        case .profileTab:
-            // handled on AppRouter.tabView
-            EmptyView()
+            NavigationStack(path: $router.path) {
+                MainTabView()
+                    .environmentObject(router)
+                    .navigationDestination(for: ChildView.self) { screen in
+                        switch screen {
+                        case .detail(let name):
+                            DetailView(
+                                viewModel: DependencyContainer.shared.provideDetailViewModel(),
+                                pokemonName: name
+                            )
+                            .environmentObject(router)
+                            
+                        case .login:
+                            LoginView(viewModel: dependencyContainer.provideAuthViewModel())
+                                .environmentObject(router)
+                            
+                        case .register(let email):
+                            RegistrationView(viewModel: dependencyContainer.provideAuthViewModel(), preffiledEmail: email)
+                                .environmentObject(router)
+                            
+                        case .search:
+                            SearchView()
+                        }
+                    }
+            }
         }
     }
 }

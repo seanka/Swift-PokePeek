@@ -39,4 +39,12 @@ final class DependencyContainer {
     func provideProfileViewModel() -> ProfileViewModel {
         ProfileViewModel(userHelper: userDataHelper)
     }
+    
+    func provideDetailViewModel() -> DetailViewModel {
+        let pokeDetailUseCase = RequestPokemonDetailInteractor(repository: repository)
+        
+        return DetailViewModel(
+            pokeDetailUseCase: pokeDetailUseCase
+        )
+    }
 }

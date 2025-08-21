@@ -45,7 +45,7 @@ struct LoginView: View {
                         viewModel.userExist = nil
                     }
                     Button("Register Now") {
-                        router.navigate(to: .register(email: viewModel.user.email))
+                        router.push(to: .register(email: viewModel.user.email))
                     }
                },
                message: {
@@ -55,7 +55,7 @@ struct LoginView: View {
             viewModel.actionSucceeded.subscribe(onNext: { succeeded in
                 guard succeeded else { return }
                 
-                router.navigate(to: .main)
+                router.setRoot(to: .main)
             }).disposed(by: viewModel.disposeBag)
         }
     }

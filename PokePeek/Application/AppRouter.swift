@@ -9,7 +9,10 @@ import Foundation
 import SwiftUICore
 
 final class AppRouter: ObservableObject {
-    @Published var currentRoute: AppRoute = .login
+    @Published var root: RootView = .login
+    @Published var path: [ChildView] = []
+    
+    var currentChild: ChildView? { path.last }
     
     private let userHelper: UserDataHelper
     
@@ -20,25 +23,40 @@ final class AppRouter: ObservableObject {
     
     private func initialRoute() {
         guard let user = userHelper.fetchLoggedUser() else {
-            currentRoute = .login
+            setRoot(to: .login)
             return
         }
-        
+
         if userHelper.checkTokenValidity(for: user) {
-            currentRoute = .main
+            setRoot(to: .main)
         } else {
-            currentRoute = .login
+            setRoot(to: .login)
             userHelper.invalidateToken(for: user)
         }
     }
-    
-    func navigate(to route: AppRoute) {
-        currentRoute = route
+
+    // MARK: - Root Navigation
+    func setRoot(to root: RootView, clearPath: Bool = true) {
+        if clearPath { path.removeAll() }
+        self.root = root
+    }
+
+    // MARK: - Child Navigation (Push / Pop)
+    func push(to screen: ChildView) {
+        path.append(screen)
+    }
+
+    func pop() {
+        _ = path.popLast()
+    }
+
+    func popToRootChild() {
+        path.removeAll()
     }
 }
 
 extension AppRouter {
-    func tabView(for route: AppRoute) -> some View {
+    func tabView(for route: AppTabs) -> some View {
         switch route {
         case .homeTab:
             let dependencyContainer = DependencyContainer.shared
@@ -50,9 +68,6 @@ extension AppRouter {
             let dependencyContainer = DependencyContainer.shared
             return AnyView(ProfileView(
                 viewModel: dependencyContainer.provideProfileViewModel()).environmentObject(self))
-
-        default:
-            return AnyView(EmptyView())
         }
     }
 }

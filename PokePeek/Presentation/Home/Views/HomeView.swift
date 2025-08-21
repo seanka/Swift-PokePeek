@@ -16,7 +16,7 @@ struct HomeView: View {
             List {
                 ForEach(Array(viewModel.pokeList.enumerated()), id: \.offset) { index, pokemon in
                     Button(action: {
-                        print(pokemon.name)
+                        router.push(to: .detail(pokemonName: pokemon.name ?? ""))
                     }) {
                         Text(pokemon.name ?? "")
                             .padding(.vertical, 8)
