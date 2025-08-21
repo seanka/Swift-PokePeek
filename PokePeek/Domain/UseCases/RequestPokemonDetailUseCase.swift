@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol RequestPokemonDetailUseCase {
-    func execute(id: Int) -> Observable<PokeDetail>
+    func execute(name: String) -> Observable<PokeDetail>
 }
 
 final class RequestPokemonDetailInteractor: RequestPokemonDetailUseCase {
@@ -18,7 +18,7 @@ final class RequestPokemonDetailInteractor: RequestPokemonDetailUseCase {
         self.repository = repository
     }
     
-    func execute(id: Int) -> Observable<PokeDetail> {
-        repository.requestPokemonDetail(id: id)
+    func execute(name: String) -> Observable<PokeDetail> {
+        repository.requestPokemonDetail(name: name)
     }
 }

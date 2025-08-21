@@ -6,10 +6,10 @@
 //
 
 struct PokeList: Codable {
-    var count: Int
+    var count: Int?
     var next: String?
     var previous: String?
-    var result: [Pokemon]
+    var results: [Pokemon]?
 }
 
 struct Pokemon: Codable {

@@ -41,7 +41,10 @@ extension AppRouter {
     func tabView(for route: AppRoute) -> some View {
         switch route {
         case .homeTab:
-            return AnyView(HomeView().environmentObject(self))
+            let dependencyContainer = DependencyContainer.shared
+            return AnyView(HomeView(
+                viewModel: dependencyContainer.provideHomeViewModel()
+            ).environmentObject(self))
 
         case .profileTab:
             let dependencyContainer = DependencyContainer.shared

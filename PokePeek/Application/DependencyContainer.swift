@@ -11,9 +11,13 @@ final class DependencyContainer {
     static let shared = DependencyContainer()
     
     let userDataHelper: UserDataHelper
+    let pokemonRemote: PokemonRemote
+    let repository: PokemonRepository
     
     private init() {
         self.userDataHelper = UserDataHelper(context: PersistenceController.shared.container.viewContext)
+        self.pokemonRemote = PokemonRemote()
+        self.repository = PokemonRepositoryImpl(remote: pokemonRemote)
     }
     
     func provideAppRouter() -> AppRouter {
@@ -22,6 +26,14 @@ final class DependencyContainer {
     
     func provideAuthViewModel() -> AuthViewModel {
         AuthViewModel(userHelper: userDataHelper)
+    }
+    
+    func provideHomeViewModel() -> HomeViewModel {
+        let pokeListUseCase = RequestPokemonListInteractor(repository: repository)
+        
+        return HomeViewModel(
+            pokeListUseCase: pokeListUseCase
+        )
     }
     
     func provideProfileViewModel() -> ProfileViewModel {

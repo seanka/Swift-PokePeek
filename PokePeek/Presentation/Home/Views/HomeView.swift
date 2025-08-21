@@ -8,11 +8,43 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var router: AppRouter
+    @StateObject var viewModel: HomeViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(Array(viewModel.pokeList.enumerated()), id: \.offset) { index, pokemon in
+                    Button(action: {
+                        print(pokemon.name)
+                    }) {
+                        Text(pokemon.name ?? "")
+                            .padding(.vertical, 8)
+                            .onAppear {
+                                viewModel.loadMoreData(currentIndex: index)
+                            }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                
+                if viewModel.loading {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                }
+            }
+            .navigationTitle("Pokémon")
+            .onAppear {
+                if viewModel.pokeList.isEmpty {
+                    viewModel.loadInitialData()
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: DependencyContainer.shared.provideHomeViewModel())
 }
