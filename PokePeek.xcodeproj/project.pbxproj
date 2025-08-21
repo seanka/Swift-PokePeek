@@ -21,6 +21,10 @@
 		B439BEE32E55D90E00F063C0 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEE22E55D90E00F063C0 /* SearchView.swift */; };
 		B439BEE72E55D91E00F063C0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEE62E55D91E00F063C0 /* DetailView.swift */; };
 		B439BEE92E55D9DA00F063C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEE82E55D9DA00F063C0 /* MainTabView.swift */; };
+		B4BD02002E55EC9200D9DED5 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD01FF2E55EC9200D9DED5 /* DependencyContainer.swift */; };
+		B4BD02052E55F60D00D9DED5 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD02042E55F60A00D9DED5 /* UserRequest.swift */; };
+		B4BD02092E56ACF500D9DED5 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD02082E56ACED00D9DED5 /* Toast.swift */; };
+		B4BD020B2E56AD0700D9DED5 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD020A2E56AD0500D9DED5 /* ViewExtension.swift */; };
 		B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F39B232E55B82300C6C626 /* PokePeekApp.swift */; };
 		B4F39B292E55B82300C6C626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4F39B212E55B82300C6C626 /* Assets.xcassets */; };
 		E81F3196290CCCD165E75693 /* Pods_PokePeek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1370C11AFCD47623FD20D606 /* Pods_PokePeek.framework */; };
@@ -45,6 +49,10 @@
 		B439BEE22E55D90E00F063C0 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		B439BEE62E55D91E00F063C0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B439BEE82E55D9DA00F063C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B4BD01FF2E55EC9200D9DED5 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		B4BD02042E55F60A00D9DED5 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		B4BD02082E56ACED00D9DED5 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		B4BD020A2E56AD0500D9DED5 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		B4F39B212E55B82300C6C626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4F39B232E55B82300C6C626 /* PokePeekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokePeekApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +176,7 @@
 		B439BEAE2E55BC6600F063C0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				B4BD02042E55F60A00D9DED5 /* UserRequest.swift */,
 				B439BED12E55D72D00F063C0 /* AppRoute.swift */,
 			);
 			path = Entities;
@@ -210,6 +219,8 @@
 		B439BEB32E55BCA000F063C0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B4BD02072E56ACE600D9DED5 /* Toast */,
+				B4BD02062E56ACDE00D9DED5 /* Extension */,
 				B439BED32E55D81600F063C0 /* Root */,
 			);
 			path = Common;
@@ -252,6 +263,7 @@
 			children = (
 				B4F39B232E55B82300C6C626 /* PokePeekApp.swift */,
 				B439BECF2E55D71600F063C0 /* AppRouter.swift */,
+				B4BD01FF2E55EC9200D9DED5 /* DependencyContainer.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -341,6 +353,22 @@
 				B439BEE62E55D91E00F063C0 /* DetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B4BD02062E56ACDE00D9DED5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B4BD020A2E56AD0500D9DED5 /* ViewExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B4BD02072E56ACE600D9DED5 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				B4BD02082E56ACED00D9DED5 /* Toast.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,12 +491,16 @@
 				B439BEE72E55D91E00F063C0 /* DetailView.swift in Sources */,
 				B439BECA2E55C8FD00F063C0 /* RegistrationView.swift in Sources */,
 				B439BEDD2E55D8DA00F063C0 /* ProfileView.swift in Sources */,
+				B4BD02002E55EC9200D9DED5 /* DependencyContainer.swift in Sources */,
+				B4BD02092E56ACF500D9DED5 /* Toast.swift in Sources */,
 				B439BED52E55D82100F063C0 /* RootNavigationView.swift in Sources */,
 				B439BED92E55D8C200F063C0 /* HomeView.swift in Sources */,
 				B439BECC2E55C92600F063C0 /* AuthViewModel.swift in Sources */,
 				B439BEE32E55D90E00F063C0 /* SearchView.swift in Sources */,
 				B439BED02E55D71600F063C0 /* AppRouter.swift in Sources */,
 				B439BEBD2E55C64500F063C0 /* Persistence.swift in Sources */,
+				B4BD02052E55F60D00D9DED5 /* UserRequest.swift in Sources */,
+				B4BD020B2E56AD0700D9DED5 /* ViewExtension.swift in Sources */,
 				B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */,
 				B439BEC02E55C67100F063C0 /* PokePeekModel.xcdatamodeld in Sources */,
 				B439BEE92E55D9DA00F063C0 /* MainTabView.swift in Sources */,

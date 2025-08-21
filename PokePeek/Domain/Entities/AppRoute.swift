@@ -7,7 +7,7 @@
 
 enum AppRoute {
     case login
-    case register
+    case register(email: String)
     case main
     case search
     case detail(name: String)

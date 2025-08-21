@@ -8,7 +8,23 @@
 import Foundation
 
 final class AppRouter: ObservableObject {
-    @Published var currentRoute: AppRoute = .main
+    @Published var currentRoute: AppRoute = .login
+    
+    private let userHelper: UserDataHelper
+    
+    init(userHelper: UserDataHelper) {
+        self.userHelper = userHelper
+        initialRoute()
+    }
+    
+    private func initialRoute() {
+        if let user = userHelper.fetchLoggedUser(),
+           userHelper.checkTokenValidity(for: user) {
+            currentRoute = .main
+        } else {
+            currentRoute = .login
+        }
+    }
     
     func navigate(to route: AppRoute) {
         currentRoute = route
