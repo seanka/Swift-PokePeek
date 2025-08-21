@@ -9,19 +9,22 @@ import SwiftUI
 import PagerTabStripView
 
 struct MainTabView: View {
+    @EnvironmentObject var router: AppRouter
     @State private var selection: Int = 0
 
     var body: some View {
         PagerTabStripView(selection: $selection) {
-            HomeView()
+            
+            router.tabView(for: .homeTab)
                 .pagerTabItem(tag: 0) {
                     Text("Home")
                 }
 
-            ProfileView()
+            router.tabView(for: .profileTab)
                 .pagerTabItem(tag: 1) {
                     Text("Profile")
                 }
+            
         }
         .pagerTabStripViewStyle(.barButton(
             tabItemSpacing: 20,

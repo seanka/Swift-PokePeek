@@ -22,11 +22,21 @@ struct RootNavigationView: View {
             RegistrationView(viewModel: authVM, preffiledEmail: email).environmentObject(router)
             
         case .main:
-            MainTabView()
+            MainTabView().environmentObject(router)
+            
         case .detail:
             DetailView()
+            
         case .search:
             SearchView()
+            
+        case .homeTab:
+            // handled on AppRouter.tabView
+            EmptyView()
+            
+        case .profileTab:
+            // handled on AppRouter.tabView
+            EmptyView()
         }
     }
 }

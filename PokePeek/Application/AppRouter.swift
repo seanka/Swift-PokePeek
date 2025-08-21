@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUICore
 
 final class AppRouter: ObservableObject {
     @Published var currentRoute: AppRoute = .login
@@ -33,5 +34,20 @@ final class AppRouter: ObservableObject {
     
     func navigate(to route: AppRoute) {
         currentRoute = route
+    }
+}
+
+extension AppRouter {
+    func tabView(for route: AppRoute) -> some View {
+        switch route {
+        case .homeTab:
+            return AnyView(HomeView().environmentObject(self))
+
+        case .profileTab:
+            return AnyView(ProfileView().environmentObject(self))
+
+        default:
+            return AnyView(EmptyView())
+        }
     }
 }

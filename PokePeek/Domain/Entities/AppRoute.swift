@@ -6,9 +6,14 @@
 //
 
 enum AppRoute {
+    // screens
     case login
     case register(email: String)
     case main
     case search
     case detail(name: String)
+    
+    // tabs
+    case homeTab
+    case profileTab
 }
