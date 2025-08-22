@@ -46,18 +46,44 @@ struct RegistrationView: View {
             // Form
             VStack(spacing: 16) {
                 TextField("Email", text: $viewModel.user.email)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(.plain)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
-                    .disabled(true)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .onTapGesture {
+                        router.setRoot(to: .login)
+                    }
+                    .background(
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(Color.gray.opacity(0.3))
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                    )
                 
                 TextField("Name", text: $viewModel.user.name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(.plain)
                     .keyboardType(.default)
                     .autocapitalization(.words)
+                    .background(Color.clear)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                    )
                 
                 SecureField("Password", text: $viewModel.user.password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(.plain)
+                    .background(Color.clear)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                    )
             }
             .padding(.top, 16)
             

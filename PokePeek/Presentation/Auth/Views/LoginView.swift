@@ -31,22 +31,83 @@ struct LoginView: View {
                 .foregroundColor(.secondary)
                 .padding(.trailing, 40)
             
-            TextField("Email", text: $viewModel.user.email)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
-                .disabled(viewModel.userExist == true)
-                .padding(.top, 16)
-            
-            if viewModel.userExist == true {
-                SecureField("Password", text: $viewModel.user.password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            // Form
+            VStack(alignment: .leading, spacing: 8) {
+                // Email field
+                TextField("Email", text: $viewModel.user.email)
+                    .textFieldStyle(.plain)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .onTapGesture {
+                        viewModel.resetState()
+                    }
+                    .background(	
+                        RoundedRectangle(cornerRadius: 6)
+                            .fill(viewModel.emailError
+                                   ? Color.red.opacity(0.3)
+                                   : viewModel.userExist == true
+                                        ? Color.gray.opacity(0.3)
+                                        : Color.clear)
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(viewModel.emailError
+                                        ? Color.red.opacity(0.5)
+                                        : Color.gray.opacity(0.5),
+                                    lineWidth: 1)
+                    )
+                    .onChange(of: viewModel.user.email) { _ in
+                        viewModel.validateEmail()
+                    }
+                
+                // Email not valid error
+                if viewModel.emailError {
+                    Text("Please enter a valid email address.")
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundColor(Color.red.opacity(0.5))
+                }
+
+                // Password field
+                if viewModel.userExist == true {
+                    SecureField("Password", text: $viewModel.user.password)
+                        .textFieldStyle(.plain)
+                        .autocapitalization(.none)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(viewModel.authError ? Color.red.opacity(0.2) : Color.clear)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .stroke(viewModel.authError
+                                            ? Color.red.opacity(0.5)
+                                            : Color.gray.opacity(0.5),
+                                        lineWidth: 1)
+                        )
+                        .onChange(of: viewModel.user.password) { _ in
+                            viewModel.authError = false
+                        }
+                    
+                    // Login error
+                    if viewModel.authError {
+                        Text("⚠️ Invalid password")
+                            .font(.system(size: 10, weight: .bold))
+                            .foregroundColor(Color.red.opacity(0.5))
+                    }
+                }
             }
             
             // Continue Button
             HStack {
                 Spacer()
                 Button(action: {
+                    // Return when there are errors
+                    guard !viewModel.authError, !viewModel.emailError else { return }
+                    
+                    // Return when user not exist (Register flow)
                     guard let userExist = viewModel.userExist else {
                         viewModel.checkUserExist()
                         return

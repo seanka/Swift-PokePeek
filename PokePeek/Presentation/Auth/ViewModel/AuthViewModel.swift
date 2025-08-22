@@ -16,6 +16,9 @@ final class AuthViewModel: ObservableObject {
     @Published var userExist: Bool? = nil
     @Published var statusMessage: String?
     
+    @Published var authError: Bool = false
+    @Published var emailError: Bool = false
+    
     let actionSucceeded = BehaviorRelay<Bool>(value: false)
     
     private let userHelper: UserDataHelper
@@ -24,9 +27,30 @@ final class AuthViewModel: ObservableObject {
         self.userHelper = userHelper
     }
     
-    private func resetState() {
+    public func resetState() {
+        authError = false
+        emailError = false
         userExist = nil
         user = UserRequest(email: "", name: "", password: "")
+    }
+    
+    // MARK: - Form Validator
+    func validateEmail() {
+        guard !user.email.isEmpty else { return }
+        
+        let pattern = #"""
+        (?xi)                                     # allow comments / case-insensitive
+        ^(?=.{1,254}$)                             # whole email length
+        (?=.{1,64}@)                               # local-part length
+        [A-Z0-9._%+-]+(?:\.[A-Z0-9._%+-]+)*        # local part (no leading/trailing dot; no consecutive dots via groups)
+        @
+        (?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+# domain labels
+        [A-Z]{2,}$                                 # TLD
+        """#
+
+        let predicate = NSPredicate(format: "SELF MATCHES[c] %@", pattern)
+
+        emailError = !predicate.evaluate(with: user.email)
     }
     
     // MARK: - Check User Existance
@@ -38,10 +62,7 @@ final class AuthViewModel: ObservableObject {
     
     // MARK: - Register
     func registerUser() {
-        guard !user.email.isEmpty, !user.password.isEmpty, !user.name.isEmpty else {
-            statusMessage = "⚠️ All fields are required"
-            return
-        }
+        guard !user.email.isEmpty, !user.password.isEmpty, !user.name.isEmpty else { return }
         
         userHelper.saveUser(email: user.email,name: user.name,password: user.password)
         
@@ -57,7 +78,7 @@ final class AuthViewModel: ObservableObject {
             resetState()
             actionSucceeded.accept(true)
         } else {
-            statusMessage = "❌ Invalid email or password"
+            authError = true
         }
     }
 }
