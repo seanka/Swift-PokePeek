@@ -13,38 +13,39 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Button("Search Something") {
-                    router.push(to: .search)
+            List {
+                ForEach(Array(viewModel.pokeList.enumerated()), id: \.offset) { index, pokemon in
+                    Button(action: {
+                        router.push(to: .detail(pokemonName: pokemon.name ?? ""))
+                    }) {
+                        Text(pokemon.name ?? "")
+                            .padding(.vertical, 8)
+                            .onAppear {
+                                viewModel.loadMoreData(currentIndex: index)
+                            }
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
                 
-                List {
-                    ForEach(Array(viewModel.pokeList.enumerated()), id: \.offset) { index, pokemon in
-                        Button(action: {
-                            router.push(to: .detail(pokemonName: pokemon.name ?? ""))
-                        }) {
-                            Text(pokemon.name ?? "")
-                                .padding(.vertical, 8)
-                                .onAppear {
-                                    viewModel.loadMoreData(currentIndex: index)
-                                }
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                    
-                    if viewModel.loading {
-                        HStack {
-                            Spacer()
-                            ProgressView()
-                            Spacer()
-                        }
+                if viewModel.loading {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
                     }
                 }
-                .navigationTitle("Pokémon")
-                .onAppear {
-                    if viewModel.pokeList.isEmpty {
-                        viewModel.loadInitialData()
+            }
+            .navigationTitle("Pokémon")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Search") {
+                        router.push(to: .search)
                     }
+                }
+            }
+            .onAppear {
+                if viewModel.pokeList.isEmpty {
+                    viewModel.loadInitialData()
                 }
             }
         }
