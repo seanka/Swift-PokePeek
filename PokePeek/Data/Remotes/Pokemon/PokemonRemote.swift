@@ -47,14 +47,17 @@ final class PokemonRemote {
         }
     }
     
-    func requestSearchPokemon(keyword: String) -> Observable<PokeList> {
+    func requestSearchPokemon(keyword: String) -> Observable<[Pokemon]> {
         return Observable.create { observer in
-            let url = self.baseURL + PokemonAPI.pokemon  + "/\(keyword)"
+            let url = self.baseURL + PokemonAPI.pokemon  + "?limit=\(10000)&offset=\(0)"
             
             let request = AF.request(url).responseDecodable(of: PokeList.self) { response in
                 switch response.result {
                 case .success(let data):
-                    observer.onNext(data)
+                    let filtered = data.results?.filter { poke in
+                        (poke.name ?? "").lowercased().contains(keyword.lowercased())
+                    }
+                    observer.onNext(filtered ?? [])
                     observer.onCompleted()
                 case .failure(let error):
                     observer.onError(error)

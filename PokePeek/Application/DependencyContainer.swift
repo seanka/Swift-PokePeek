@@ -47,4 +47,12 @@ final class DependencyContainer {
             pokeDetailUseCase: pokeDetailUseCase
         )
     }
+    
+    func provideSearchViewModel() -> SearchViewModel {
+        let pokeSearchUseCase = RequestSearchPokemonInteractor(repository: repository)
+        
+        return SearchViewModel(
+            pokeSearchUseCase: pokeSearchUseCase
+        )
+    }
 }

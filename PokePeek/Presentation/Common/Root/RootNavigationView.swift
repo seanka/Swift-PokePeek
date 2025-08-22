@@ -41,7 +41,8 @@ struct RootNavigationView: View {
                                 .environmentObject(router)
                             
                         case .search:
-                            SearchView()
+                            SearchView(viewModel: dependencyContainer.provideSearchViewModel())
+                                .environmentObject(router)
                         }
                     }
             }

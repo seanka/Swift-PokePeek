@@ -22,7 +22,7 @@ final class PokemonRepositoryImpl: PokemonRepository {
         remote.requestPokemonDetail(name: name)
     }
     
-    func requestSearchPokemon(keyword: String) -> Observable<PokeList> {
+    func requestSearchPokemon(keyword: String) -> Observable<[Pokemon]> {
         remote.requestSearchPokemon(keyword: keyword)
     }
 }

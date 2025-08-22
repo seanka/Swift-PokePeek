@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol RequestSearchPokemonUseCase {
-    func execute(keyword: String) -> Observable<PokeList>
+    func execute(keyword: String) -> Observable<[Pokemon]>
 }
 
 final class RequestSearchPokemonInteractor: RequestSearchPokemonUseCase {
@@ -18,7 +18,7 @@ final class RequestSearchPokemonInteractor: RequestSearchPokemonUseCase {
         self.repository = repository
     }
     
-    func execute(keyword: String) -> Observable<PokeList> {
+    func execute(keyword: String) -> Observable<[Pokemon]> {
         repository.requestSearchPokemon(keyword: keyword)
     }
 }
