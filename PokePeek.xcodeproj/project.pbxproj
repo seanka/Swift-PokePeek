@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42909ED2E587AFF00A5FADC /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42909EC2E587AFF00A5FADC /* ShimmerView.swift */; };
 		B439BEBD2E55C64500F063C0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEBC2E55C64500F063C0 /* Persistence.swift */; };
 		B439BEC02E55C67100F063C0 /* PokePeekModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B439BEBE2E55C67100F063C0 /* PokePeekModel.xcdatamodeld */; };
 		B439BEC32E55C7C800F063C0 /* UserDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEC22E55C7C800F063C0 /* UserDataHelper.swift */; };
@@ -48,6 +49,7 @@
 		90ADAE899A92710C05D11722 /* Pods-PokePeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.release.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.release.xcconfig"; sourceTree = "<group>"; };
 		AF9B2E4563431AF5442EE88A /* Pods-PokePeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.debug.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.debug.xcconfig"; sourceTree = "<group>"; };
 		B4177E122E55B4B7000E96C6 /* PokePeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokePeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B42909EC2E587AFF00A5FADC /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		B439BEBC2E55C64500F063C0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B439BEBF2E55C67100F063C0 /* PokePeekModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokePeekModel.xcdatamodel; sourceTree = "<group>"; };
 		B439BEC22E55C7C800F063C0 /* UserDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataHelper.swift; sourceTree = "<group>"; };
@@ -141,6 +143,14 @@
 				B439BECD2E55CAAF00F063C0 /* Preview Content */,
 			);
 			path = PokePeek;
+			sourceTree = "<group>";
+		};
+		B42909EB2E587AD900A5FADC /* Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				B42909EC2E587AFF00A5FADC /* ShimmerView.swift */,
+			);
+			path = Shimmer;
 			sourceTree = "<group>";
 		};
 		B439BEA82E55BBBE00F063C0 /* Data */ = {
@@ -253,6 +263,7 @@
 		B439BEB32E55BCA000F063C0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B42909EB2E587AD900A5FADC /* Shimmer */,
 				B4BD02072E56ACE600D9DED5 /* Toast */,
 				B4BD02062E56ACDE00D9DED5 /* Extension */,
 				B439BED32E55D81600F063C0 /* Root */,
@@ -567,6 +578,7 @@
 				B4BD02122E56F2B300D9DED5 /* Pokemon.swift in Sources */,
 				B4BD020B2E56AD0700D9DED5 /* ViewExtension.swift in Sources */,
 				B4BD021C2E57017C00D9DED5 /* PokemonRepository.swift in Sources */,
+				B42909ED2E587AFF00A5FADC /* ShimmerView.swift in Sources */,
 				B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */,
 				B4BD02222E57039A00D9DED5 /* RequestPokemonSearchUseCase.swift in Sources */,
 				B439BEC02E55C67100F063C0 /* PokePeekModel.xcdatamodeld in Sources */,

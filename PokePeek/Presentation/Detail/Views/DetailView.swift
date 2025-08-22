@@ -19,41 +19,49 @@ struct DetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                
-                HStack {
-                    Spacer()
-                    pokeImage
-                    Spacer()
+        ZStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    HStack {
+                        Spacer()
+                        pokeImage
+                        Spacer()
+                    }
+                    
+                    HStack {
+                        Text("#\(viewModel.pokeDetail.id ?? -1)")
+                            .font(.system(size: 32, weight: .bold))
+                        Spacer()
+                        Text(viewModel.pokeDetail.name?.capitalized ?? "")
+                            .font(.system(size: 32, weight: .bold))
+                    }
+                    
+                    typeSection
+                    Divider()
+                    abilitySection
+                    
+                    Divider()
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Height: \(viewModel.pokeDetail.height ?? 0)")
+                        Text("Weight: \(viewModel.pokeDetail.weight ?? 0)")
+                        Text("Base Experience: \(viewModel.pokeDetail.base_experience ?? 0)")
+                    }
+                    .font(.subheadline)
                 }
-                
-                HStack {
-                    Text("#\(viewModel.pokeDetail.id ?? -1)")
-                        .font(.system(size: 32, weight: .bold))
-                    Spacer()
-                    Text(viewModel.pokeDetail.name?.capitalized ?? "")
-                        .font(.system(size: 32, weight: .bold))
-                }
-                
-                typeSection
-                Divider()
-                abilitySection
-                
-                Divider()
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Height: \(viewModel.pokeDetail.height ?? 0)")
-                    Text("Weight: \(viewModel.pokeDetail.weight ?? 0)")
-                    Text("Base Experience: \(viewModel.pokeDetail.base_experience ?? 0)")
-                }
-                .font(.subheadline)
+                .padding()
             }
-            .padding()
-        }
-        .navigationTitle(viewModel.pokeDetail.name?.capitalized ?? "")
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            viewModel.requestPokemonDetail(name: pokemonName)
+            .navigationTitle(viewModel.pokeDetail.name?.capitalized ?? "")
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                viewModel.requestPokemonDetail(name: pokemonName)
+            }
+            
+            if viewModel.loading {
+                ShimmerView(isPresented: $viewModel.loading)
+                    .background(Color.white)
+                    .ignoresSafeArea()
+            }
         }
     }
 }

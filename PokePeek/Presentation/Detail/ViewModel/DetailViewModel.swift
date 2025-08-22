@@ -30,16 +30,18 @@ final class DetailViewModel: ObservableObject {
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] response in
-                    guard let self = self else { return }
+                    guard let self else { return }
                     
                     self.pokeDetail = response
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.loading = false
+                    }
                 },
                 onError: { [weak self] (error: Error) in
-                    guard let self = self else { return }
+                    guard let self else { return }
+                    
                     self.error = error
-                },
-                onCompleted: { [weak self] in
-                    self?.loading = false
+                    self.loading = false
                 }
             )
             .disposed(by: disposeBag)

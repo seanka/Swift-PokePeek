@@ -37,13 +37,14 @@ final class SearchViewModel: ObservableObject {
                     guard let self else { return }
                     
                     self.searchResult = response
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.loading = false
+                    }
                 },
                 onError: { [weak self] error in
                     guard let self else { return }
+                    
                     self.error = error
-                },
-                onCompleted: { [weak self] in
-                    guard let self else { return }
                     self.loading = false
                 }
             )

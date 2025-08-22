@@ -52,19 +52,21 @@ final class HomeViewModel: ObservableObject {
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] response in
-                    guard let self = self else { return }
+                    guard let self else { return }
                     
                     self.totalCount = response.count ?? 0
                     self.offset += self.limit
                     
                     self.pokeList.append(contentsOf: response.results ?? [])
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.loading = false
+                    }
                 },
                 onError: { [weak self] (error: Error) in
-                    guard let self = self else { return }
+                    guard let self else { return }
+                    
                     self.error = error
-                },
-                onCompleted: { [weak self] in
-                    self?.loading = false
+                    self.loading = false
                 }
             )
             .disposed(by: disposeBag)
