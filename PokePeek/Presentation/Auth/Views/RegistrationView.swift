@@ -64,6 +64,7 @@ struct RegistrationView: View {
             // Continue Button
             HStack {
                 Spacer()
+                
                 Button(action: {
                     viewModel.registerUser()
                 }) {
@@ -90,7 +91,7 @@ struct RegistrationView: View {
                 withAnimation { self.registerSuceeded = true }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    router.pop()
+                    router.setRoot(to: .login)
                 }
             }).disposed(by: viewModel.disposeBag)
         }

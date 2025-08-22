@@ -11,13 +11,13 @@ enum AppTabs {
 }
 
 enum RootView: Hashable {
-    case login
     case main
+    case login
+    case register(email: String)
 }
 
 enum ChildView: Hashable {
+    case login
     case search
     case detail(pokemonName: String)
-    case login
-    case register(email: String)
 }

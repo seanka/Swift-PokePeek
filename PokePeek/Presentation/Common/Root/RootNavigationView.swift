@@ -19,6 +19,10 @@ struct RootNavigationView: View {
             LoginView(viewModel: dependencyContainer.provideAuthViewModel())
                 .environmentObject(router)
             
+        case .register(let email):
+            RegistrationView(viewModel: dependencyContainer.provideAuthViewModel(), preffiledEmail: email)
+                .environmentObject(router)
+            
         case .main:
             NavigationStack(path: $router.path) {
                 MainTabView()
@@ -34,10 +38,6 @@ struct RootNavigationView: View {
                             
                         case .login:
                             LoginView(viewModel: dependencyContainer.provideAuthViewModel())
-                                .environmentObject(router)
-                            
-                        case .register(let email):
-                            RegistrationView(viewModel: dependencyContainer.provideAuthViewModel(), preffiledEmail: email)
                                 .environmentObject(router)
                             
                         case .search:
