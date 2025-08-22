@@ -76,6 +76,32 @@ struct Sprites: Codable {
     var front_female: String?
     var front_shiny: String?
     var front_shiny_female: String?
+    var other: SpriteOther?
+}
+
+struct SpriteOther: Codable {
+    var dream_world: Sprite?
+    var home: Sprite?
+    var official_artwork: Sprite?
+    var showdown: Sprite?
+    
+    enum CodingKeys: String, CodingKey {
+        case dream_world
+        case home
+        case official_artwork = "official-artwork"
+        case showdown
+    }
+}
+
+struct Sprite: Codable {
+    var back_default: String?
+    var back_female: String?
+    var back_shiny: String?
+    var back_shiny_female: String?
+    var front_default: String?
+    var front_female: String?
+    var front_shiny: String?
+    var front_shiny_female: String?
 }
 
 struct Stat: Codable {
