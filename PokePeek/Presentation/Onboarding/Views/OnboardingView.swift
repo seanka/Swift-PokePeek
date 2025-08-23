@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    
+    @EnvironmentObject var router: AppRouter
     @State private var currentPage = 0
 
     var body: some View {
@@ -61,6 +63,7 @@ struct OnboardingView: View {
 
                     Button(action: {
                         hasSeenOnboarding = true
+                        router.setRoot(to: .main)
                     }) {
                         Text("Get Started")
                             .padding()

@@ -39,6 +39,7 @@ struct RootNavigationView: View {
             
         case .onboarding:
             OnboardingView()
+                .environmentObject(router)
 
         case .main:
             NavigationStack(path: $router.path) {
