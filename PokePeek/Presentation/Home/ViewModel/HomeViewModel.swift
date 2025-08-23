@@ -20,9 +20,11 @@ final class HomeViewModel: ObservableObject {
     private var limit: Int = 10
     private var totalCount: Int = 0
     
+    private let pokeHelper: PokemonDataHelper
     private let pokeListUseCase: RequestPokemonListUseCase
     
-    init(pokeListUseCase: RequestPokemonListUseCase) {
+    init(pokeHelper: PokemonDataHelper, pokeListUseCase: RequestPokemonListUseCase) {
+        self.pokeHelper = pokeHelper
         self.pokeListUseCase = pokeListUseCase
     }
     
@@ -33,8 +35,13 @@ final class HomeViewModel: ObservableObject {
         requestPokeList()
     }
     
-    func loadMoreData(currentIndex: Int) {
+    func loadMoreData(currentIndex: Int, ignoreOffset: Bool = false) {
         guard !loading else { return }
+        
+        guard !ignoreOffset else {
+            requestPokeList()
+            return
+        }
         
         let thresholdIndex = pokeList.count - 5
         if currentIndex == thresholdIndex {
@@ -44,20 +51,42 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Local Pokemon List
+    func loadCachedPokeList() {
+        loading = true
+        let cached = pokeHelper.fetchPokeList(offset: offset, limit: limit)
+        
+        guard let cached else {
+            loading = false;
+            return
+        }
+        
+        self.pokeList.append(contentsOf: cached)
+    }
+    
     // MARK: - Pokemon List
     func requestPokeList() {
-        loading = true
+        loadCachedPokeList()
         
+        loading = true
         pokeListUseCase.execute(offset: offset, limit: limit)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onNext: { [weak self] response in
-                    guard let self else { return }
+                    guard let self, let pokeResults = response.results else { return }
                     
                     self.totalCount = response.count ?? 0
                     self.offset += self.limit
                     
-                    self.pokeList.append(contentsOf: response.results ?? [])
+                    self.pokeList.append(contentsOf: pokeResults)
+                    
+                    // Save to Core Data
+                    if offset == 0 {
+                        pokeHelper.overwriteList(with: pokeResults)
+                    } else {
+                        pokeHelper.updatePokeList(with: pokeResults)
+                    }
+                    
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         self.loading = false
                     }

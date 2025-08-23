@@ -39,6 +39,10 @@ struct HomeView: View {
                 .onAppear {
                     if viewModel.pokeList.isEmpty {
                         viewModel.loadInitialData()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            viewModel.loadMoreData(currentIndex: 10, ignoreOffset: true)
+                        }
                     }
                 }
                 

@@ -11,11 +11,15 @@ final class DependencyContainer {
     static let shared = DependencyContainer()
     
     let userDataHelper: UserDataHelper
+    let pokeDataHelper: PokemonDataHelper
+    
     let pokemonRemote: PokemonRemote
     let repository: PokemonRepository
     
     private init() {
         self.userDataHelper = UserDataHelper(context: PersistenceController.shared.container.viewContext)
+        self.pokeDataHelper = PokemonDataHelper(context: PersistenceController.shared.container.viewContext)
+        
         self.pokemonRemote = PokemonRemote()
         self.repository = PokemonRepositoryImpl(remote: pokemonRemote)
     }
@@ -32,6 +36,7 @@ final class DependencyContainer {
         let pokeListUseCase = RequestPokemonListInteractor(repository: repository)
         
         return HomeViewModel(
+            pokeHelper: pokeDataHelper,
             pokeListUseCase: pokeListUseCase
         )
     }
