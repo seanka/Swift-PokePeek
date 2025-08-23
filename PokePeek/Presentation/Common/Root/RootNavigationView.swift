@@ -16,8 +16,23 @@ struct RootNavigationView: View {
         switch router.root {
             
         case .login:
-            LoginView(viewModel: dependencyContainer.provideAuthViewModel())
-                .environmentObject(router)
+            NavigationStack(path: $router.path) {
+                LoginView(viewModel: dependencyContainer.provideAuthViewModel())
+                    .environmentObject(router)
+                    .navigationDestination(for: ChildView.self) { screen in
+                        switch screen {
+                        case .passwordReset(let email):
+                            PasswordResetView(
+                                viewModel: dependencyContainer.providePasswordResetViewModel(),
+                                preffiledEmail: email
+                            )
+                            
+                        default:
+                            EmptyView()
+                        }
+                    }
+            }
+
             
         case .register(let email):
             RegistrationView(viewModel: dependencyContainer.provideAuthViewModel(), preffiledEmail: email)
@@ -43,6 +58,9 @@ struct RootNavigationView: View {
                         case .search:
                             SearchView(viewModel: dependencyContainer.provideSearchViewModel())
                                 .environmentObject(router)
+                            
+                        default:
+                            EmptyView()
                         }
                     }
             }

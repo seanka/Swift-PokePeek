@@ -20,4 +20,5 @@ enum ChildView: Hashable {
     case login
     case search
     case detail(pokemonName: String)
+    case passwordReset(email: String)
 }

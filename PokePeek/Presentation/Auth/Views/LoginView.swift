@@ -102,8 +102,9 @@ struct LoginView: View {
             
             // Continue Button
             HStack {
+                resetPasswordButton
                 Spacer()
-                Button(action: {
+                ContinueAuthButton {
                     // Return when there are errors
                     guard !viewModel.authError, !viewModel.emailError else { return }
                     
@@ -114,18 +115,6 @@ struct LoginView: View {
                     }
                     
                     if userExist { viewModel.loginUser() }
-                }) {
-                    Text("→")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
-                        .background(
-                            LinearGradient(gradient: Gradient(colors: [Color.red, Color.white]),
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                        )
-                        .clipShape(Circle())
-                        .shadow(radius: 6)
                 }
             }
             .padding(.top, 20)
@@ -160,4 +149,25 @@ struct LoginView: View {
 
 #Preview {
     LoginView(viewModel: DependencyContainer.shared.provideAuthViewModel())
+}
+
+extension LoginView {
+    private var resetPasswordButton: some View {
+        // Only shows when userExist
+        if viewModel.userExist == true {
+            AnyView(
+                Button(action: {
+                    router.push(to: .passwordReset(email: viewModel.user.email))
+                    viewModel.resetState()
+                }) {
+                    Text("Forgot your password? Reset")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(.blue)
+                        .underline()
+                        .lineLimit(1)
+                        .truncationMode(.tail)
+                }
+            )
+        } else { AnyView(EmptyView()) }
+    }
 }

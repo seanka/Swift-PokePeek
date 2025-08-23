@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B42909ED2E587AFF00A5FADC /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42909EC2E587AFF00A5FADC /* ShimmerView.swift */; };
+		B42909EF2E589D4E00A5FADC /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42909EE2E589D4E00A5FADC /* PasswordResetView.swift */; };
+		B42909F12E589DBB00A5FADC /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42909F02E589DB500A5FADC /* PasswordResetViewModel.swift */; };
+		B42909F42E58A55200A5FADC /* ContinueAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42909F32E58A55200A5FADC /* ContinueAuthButton.swift */; };
 		B439BEBD2E55C64500F063C0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEBC2E55C64500F063C0 /* Persistence.swift */; };
 		B439BEC02E55C67100F063C0 /* PokePeekModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B439BEBE2E55C67100F063C0 /* PokePeekModel.xcdatamodeld */; };
 		B439BEC32E55C7C800F063C0 /* UserDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEC22E55C7C800F063C0 /* UserDataHelper.swift */; };
@@ -50,6 +53,9 @@
 		AF9B2E4563431AF5442EE88A /* Pods-PokePeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.debug.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.debug.xcconfig"; sourceTree = "<group>"; };
 		B4177E122E55B4B7000E96C6 /* PokePeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokePeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42909EC2E587AFF00A5FADC /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
+		B42909EE2E589D4E00A5FADC /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		B42909F02E589DB500A5FADC /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
+		B42909F32E58A55200A5FADC /* ContinueAuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueAuthButton.swift; sourceTree = "<group>"; };
 		B439BEBC2E55C64500F063C0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B439BEBF2E55C67100F063C0 /* PokePeekModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PokePeekModel.xcdatamodel; sourceTree = "<group>"; };
 		B439BEC22E55C7C800F063C0 /* UserDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataHelper.swift; sourceTree = "<group>"; };
@@ -151,6 +157,14 @@
 				B42909EC2E587AFF00A5FADC /* ShimmerView.swift */,
 			);
 			path = Shimmer;
+			sourceTree = "<group>";
+		};
+		B42909F22E58A53C00A5FADC /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				B42909F32E58A55200A5FADC /* ContinueAuthButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		B439BEA82E55BBBE00F063C0 /* Data */ = {
@@ -263,6 +277,7 @@
 		B439BEB32E55BCA000F063C0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B42909F22E58A53C00A5FADC /* Button */,
 				B42909EB2E587AD900A5FADC /* Shimmer */,
 				B4BD02072E56ACE600D9DED5 /* Toast */,
 				B4BD02062E56ACDE00D9DED5 /* Extension */,
@@ -284,6 +299,7 @@
 			children = (
 				B439BEC72E55C8F200F063C0 /* LoginView.swift */,
 				B439BEC92E55C8FD00F063C0 /* RegistrationView.swift */,
+				B42909EE2E589D4E00A5FADC /* PasswordResetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +307,7 @@
 		B439BEC52E55C8E100F063C0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B42909F02E589DB500A5FADC /* PasswordResetViewModel.swift */,
 				B439BECB2E55C92600F063C0 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
@@ -569,8 +586,10 @@
 				B439BECC2E55C92600F063C0 /* AuthViewModel.swift in Sources */,
 				B439BEE32E55D90E00F063C0 /* SearchView.swift in Sources */,
 				B439BED02E55D71600F063C0 /* AppRouter.swift in Sources */,
+				B42909F42E58A55200A5FADC /* ContinueAuthButton.swift in Sources */,
 				B4BD02302E57EA3D00D9DED5 /* SearchViewModel.swift in Sources */,
 				B439BEBD2E55C64500F063C0 /* Persistence.swift in Sources */,
+				B42909F12E589DBB00A5FADC /* PasswordResetViewModel.swift in Sources */,
 				B4BD020D2E56BEEB00D9DED5 /* ProfileViewModel.swift in Sources */,
 				B4BD02052E55F60D00D9DED5 /* UserRequest.swift in Sources */,
 				B4BD02102E56DF0800D9DED5 /* HomeViewModel.swift in Sources */,
@@ -578,6 +597,7 @@
 				B4BD02122E56F2B300D9DED5 /* Pokemon.swift in Sources */,
 				B4BD020B2E56AD0700D9DED5 /* ViewExtension.swift in Sources */,
 				B4BD021C2E57017C00D9DED5 /* PokemonRepository.swift in Sources */,
+				B42909EF2E589D4E00A5FADC /* PasswordResetView.swift in Sources */,
 				B42909ED2E587AFF00A5FADC /* ShimmerView.swift in Sources */,
 				B4F39B272E55B82300C6C626 /* PokePeekApp.swift in Sources */,
 				B4BD02222E57039A00D9DED5 /* RequestPokemonSearchUseCase.swift in Sources */,

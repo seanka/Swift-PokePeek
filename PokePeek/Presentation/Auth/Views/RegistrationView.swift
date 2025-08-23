@@ -90,21 +90,8 @@ struct RegistrationView: View {
             // Continue Button
             HStack {
                 Spacer()
-                
-                Button(action: {
+                ContinueAuthButton {
                     viewModel.registerUser()
-                }) {
-                    Text("→")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
-                        .background(
-                            LinearGradient(gradient: Gradient(colors: [Color.red, Color.white]),
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                        )
-                        .clipShape(Circle())
-                        .shadow(radius: 6)
                 }
             }
             .padding(.top, 20)

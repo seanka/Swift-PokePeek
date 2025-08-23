@@ -66,6 +66,12 @@ final class UserDataHelper {
         }
     }
     
+    // MARK: - Update Password
+    func updatePassword(for user: UserEntity, password: String) {
+        user.password = password
+        try? context.save()
+    }
+    
     // MARK: - Token
     func generateToken(for user: UserEntity) {
         user.validToken = Date().addingTimeInterval(5 * 60)

@@ -55,4 +55,10 @@ final class DependencyContainer {
             pokeSearchUseCase: pokeSearchUseCase
         )
     }
+    
+    func providePasswordResetViewModel() -> PasswordResetViewModel {
+        PasswordResetViewModel(
+            userHelper: userDataHelper
+        )
+    }
 }
