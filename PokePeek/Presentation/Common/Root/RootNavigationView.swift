@@ -36,6 +36,9 @@ struct RootNavigationView: View {
                         }
                     }
             }
+            
+        case .onboarding:
+            OnboardingView()
 
         case .main:
             NavigationStack(path: $router.path) {

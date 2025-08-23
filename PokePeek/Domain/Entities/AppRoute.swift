@@ -13,6 +13,7 @@ enum AppTabs {
 enum RootView: Hashable {
     case main
     case login
+    case onboarding
 }
 
 enum ChildView: Hashable {

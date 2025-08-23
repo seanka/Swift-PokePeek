@@ -6,9 +6,11 @@
 //
 
 import Foundation
-import SwiftUICore
+import SwiftUI
 
 final class AppRouter: ObservableObject {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    
     @Published var root: RootView = .login
     @Published var path: [ChildView] = []
     
@@ -22,6 +24,11 @@ final class AppRouter: ObservableObject {
     }
     
     private func initialRoute() {
+        guard hasSeenOnboarding else {
+            setRoot(to: .onboarding)
+            return
+        }
+        
         guard let user = userHelper.fetchLoggedUser() else {
             setRoot(to: .login)
             return
