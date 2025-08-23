@@ -129,7 +129,7 @@ struct LoginView: View {
                         viewModel.userExist = nil
                     }
                     Button("Register Now") {
-                        router.setRoot(to: .register(email: viewModel.user.email))
+                        router.push(to: .register(email: viewModel.user.email))
                     }
                },
                message: {

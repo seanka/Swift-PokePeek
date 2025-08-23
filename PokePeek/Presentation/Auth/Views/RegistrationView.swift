@@ -52,7 +52,7 @@ struct RegistrationView: View {
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)
                     .onTapGesture {
-                        router.setRoot(to: .login)
+                        router.pop()
                     }
                     .background(
                         RoundedRectangle(cornerRadius: 6)
@@ -104,7 +104,7 @@ struct RegistrationView: View {
                 withAnimation { self.registerSuceeded = true }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    router.setRoot(to: .login)
+                    router.pop()
                 }
             }).disposed(by: viewModel.disposeBag)
         }

@@ -27,17 +27,16 @@ struct RootNavigationView: View {
                                 preffiledEmail: email
                             )
                             
+                        case .register(let email):
+                            RegistrationView(viewModel: dependencyContainer.provideAuthViewModel(), preffiledEmail: email)
+                                .environmentObject(router)
+                            
                         default:
                             EmptyView()
                         }
                     }
             }
 
-            
-        case .register(let email):
-            RegistrationView(viewModel: dependencyContainer.provideAuthViewModel(), preffiledEmail: email)
-                .environmentObject(router)
-            
         case .main:
             NavigationStack(path: $router.path) {
                 MainTabView()
