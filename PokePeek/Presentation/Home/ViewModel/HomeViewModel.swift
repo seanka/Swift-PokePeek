@@ -36,12 +36,12 @@ final class HomeViewModel: ObservableObject {
     }
     
     func loadMoreData(currentIndex: Int, ignoreOffset: Bool = false) {
-        guard !loading else { return }
-        
         guard !ignoreOffset else {
             requestPokeList()
             return
         }
+        
+        guard !loading else { return }
         
         let thresholdIndex = pokeList.count - 5
         if currentIndex == thresholdIndex {
