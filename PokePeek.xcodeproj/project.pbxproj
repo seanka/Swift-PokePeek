@@ -26,6 +26,11 @@
 		B439BEE72E55D91E00F063C0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEE62E55D91E00F063C0 /* DetailView.swift */; };
 		B439BEE92E55D9DA00F063C0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B439BEE82E55D9DA00F063C0 /* MainTabView.swift */; };
 		B49A6BE02E59690400F85D72 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49A6BDF2E59690400F85D72 /* OnboardingView.swift */; };
+		B4A9BC832E5AC23800270877 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A9BC7F2E5AC23800270877 /* Home.png */; };
+		B4A9BC842E5AC23800270877 /* Register.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A9BC822E5AC23800270877 /* Register.png */; };
+		B4A9BC852E5AC23800270877 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A9BC802E5AC23800270877 /* Login.png */; };
+		B4A9BC862E5AC23800270877 /* Onboarding.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A9BC812E5AC23800270877 /* Onboarding.png */; };
+		B4A9BC872E5AC23800270877 /* Detail.png in Resources */ = {isa = PBXBuildFile; fileRef = B4A9BC7E2E5AC23800270877 /* Detail.png */; };
 		B4BD02002E55EC9200D9DED5 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD01FF2E55EC9200D9DED5 /* DependencyContainer.swift */; };
 		B4BD02052E55F60D00D9DED5 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD02042E55F60A00D9DED5 /* UserRequest.swift */; };
 		B4BD02092E56ACF500D9DED5 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BD02082E56ACED00D9DED5 /* Toast.swift */; };
@@ -53,6 +58,7 @@
 		1370C11AFCD47623FD20D606 /* Pods_PokePeek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokePeek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90ADAE899A92710C05D11722 /* Pods-PokePeek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.release.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.release.xcconfig"; sourceTree = "<group>"; };
 		AF9B2E4563431AF5442EE88A /* Pods-PokePeek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokePeek.debug.xcconfig"; path = "Target Support Files/Pods-PokePeek/Pods-PokePeek.debug.xcconfig"; sourceTree = "<group>"; };
+		B40B6DE72E59E81C0048D9E5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B4177E122E55B4B7000E96C6 /* PokePeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokePeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B42909EC2E587AFF00A5FADC /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		B42909EE2E589D4E00A5FADC /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
@@ -73,6 +79,11 @@
 		B439BEE62E55D91E00F063C0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B439BEE82E55D9DA00F063C0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B49A6BDF2E59690400F85D72 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B4A9BC7E2E5AC23800270877 /* Detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Detail.png; sourceTree = "<group>"; };
+		B4A9BC7F2E5AC23800270877 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		B4A9BC802E5AC23800270877 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login.png; sourceTree = "<group>"; };
+		B4A9BC812E5AC23800270877 /* Onboarding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Onboarding.png; sourceTree = "<group>"; };
+		B4A9BC822E5AC23800270877 /* Register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Register.png; sourceTree = "<group>"; };
 		B4BD01FF2E55EC9200D9DED5 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		B4BD02042E55F60A00D9DED5 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		B4BD02082E56ACED00D9DED5 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -124,9 +135,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B40B6DE82E59EB590048D9E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4A9BC7E2E5AC23800270877 /* Detail.png */,
+				B4A9BC7F2E5AC23800270877 /* Home.png */,
+				B4A9BC802E5AC23800270877 /* Login.png */,
+				B4A9BC812E5AC23800270877 /* Onboarding.png */,
+				B4A9BC822E5AC23800270877 /* Register.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B4177E092E55B4B7000E96C6 = {
 			isa = PBXGroup;
 			children = (
+				B40B6DE82E59EB590048D9E5 /* Resources */,
+				B40B6DE72E59E81C0048D9E5 /* README.md */,
 				B4177E142E55B4B7000E96C6 /* PokePeek */,
 				B4177E132E55B4B7000E96C6 /* Products */,
 				0AFD4C3D100941504E18FC7A /* Pods */,
@@ -554,6 +579,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4F39B292E55B82300C6C626 /* Assets.xcassets in Resources */,
+				B4A9BC832E5AC23800270877 /* Home.png in Resources */,
+				B4A9BC842E5AC23800270877 /* Register.png in Resources */,
+				B4A9BC852E5AC23800270877 /* Login.png in Resources */,
+				B4A9BC862E5AC23800270877 /* Onboarding.png in Resources */,
+				B4A9BC872E5AC23800270877 /* Detail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
