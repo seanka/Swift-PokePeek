@@ -70,22 +70,22 @@ It fetches data from the PokéAPI and provides offline support with Core Data ca
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Screenshots
 
-- **Onboarding View**
+- **Onboarding View**\n
 ![onboarding page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Onboarding.png?raw=true)
 
-- **Home**
+- \n**Home**\n
 ![home page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Home.png?raw=true)
 
-- **Detail View**
+- \n**Detail View**\n
 ![detail page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Detail.png?raw=true)
 
-- **Search View**
+- \n**Search View**\n
 ![home page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Home.png?raw=true)
 
-- **Authentication View**
-![login page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Login.png?raw=true)
+- \n**Authentication View**\n
+![login page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Login.png?raw=true)\n
 ![register page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Register.png?raw=true)
 
 ---
