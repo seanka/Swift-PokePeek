@@ -75,16 +75,16 @@ It fetches data from the PokéAPI and provides offline support with Core Data ca
 - **Onboarding View**<br />
 ![onboarding page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Onboarding.png?raw=true)
 
-- <br />**Home**<br />
+- **Home**<br />
 ![home page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Home.png?raw=true)
 
-- <br />**Detail View**<br />
+- **Detail View**<br />
 ![detail page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Detail.png?raw=true)
 
-- <br />**Search View**<br />
+- **Search View**<br />
 ![home page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Home.png?raw=true)
 
-- <br />**Authentication View**<br />
+- **Authentication View**<br />
 ![login page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Login.png?raw=true)<br />
 ![register page](https://github.com/seanka/Swift-PokePeek/blob/main/Resources/Register.png?raw=true)
 
